@@ -6,7 +6,7 @@ $(document).ready(function(){
 function login(){
 	var username = $("#username").val();
 	var password = $("#password").val();
-	if(username =="administrator" && password =="123456"){
+	if(username =="admin" && password =="123456"){
 		$(location).attr('href', 'main.html');
 	}else{
 		alert("登录失败");

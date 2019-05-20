@@ -3,42 +3,6 @@ layui.use(['element','layer','jquery','tree'], function(){
     var layer = layui.layer;
     var $ = layui.jquery;
    
-    var menuData =  [ //节点
-            {
-                name: '个人设置'
-                ,id:'user'
-                ,children: [
-                {
-                     name: '主页'
-                    ,id: 'user_home'
-                    ,url: 'home.html'
-                },{
-                    name: '个人信息'
-                    ,id:"user_info"
-               }
-            ]
-            }, {
-                name: '11'
-                ,children: [
-                    {
-                        name: 'QQ邮箱'
-                        ,id: '21'
-                        ,url: 'home.html'
-                       
-                    }, {
-                        name: '阿里云邮'
-                        ,id: '22'
-                        ,children: [
-                            {
-                                name: '收件箱'
-                                ,id: '1005'
-                                ,url: 'home.html'
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
     layui.tree({
          elem: '#sidemenubar' //传入元素选择器
         ,skin: 'sidebar'  //自定义tree样式的类名
@@ -50,7 +14,7 @@ layui.use(['element','layer','jquery','tree'], function(){
             $(item).addClass('active');
             $(item).siblings('.layui-tree-spread').click();
             //添加新tab
-            activeTab.init(node.name,node.url,node.id);
+             activeTab.init(node.name,node.url,node.id);
         }
     });
     var activeTab = {
@@ -70,10 +34,17 @@ layui.use(['element','layer','jquery','tree'], function(){
             return result;
         },
         addTab : function(){ //新增tab项
-            element.tabAdd('demo', {
-                 title: this.tabTit
-                ,content: '<iframe id="iframe" src = '+this.tabUrl +' frameborder = 0></iframe>' //支持传入html
-                ,id: this.tabId
+            // element.tabAdd('demo', {
+            //      title: this.tabTit
+            //     ,content: '<iframe id="iframe" src = '+this.tabUrl +' frameborder = 0></iframe>' //支持传入html
+            //     ,id: this.tabId
+            // })
+            $.ajax({
+                type:'get',
+                url:"http://localhost:8080/drp-admin/loginController",
+                success:function(data){
+                   alert(data)
+                }
             })
             FrameWH();
         },

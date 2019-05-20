@@ -3,5 +3,16 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+	
 
+	<servlet>
+	  <servlet-name>loginController</servlet-name>
+	  <servlet-class>com.chd.drp.sys.controller.LoginController</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	  <servlet-name>loginController</servlet-name>
+	  <url-pattern>/loginController</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
