@@ -4,6 +4,12 @@ $(document).ready(function(){
 	});
 });
 function login(){
-	alert("登录成功");
-	$(location).attr('href', 'main.html');
+	var username = $("#username").val();
+	var password = $("#password").val();
+	if(username =="administrator" && password =="123456"){
+		$(location).attr('href', 'main.html');
+	}else{
+		alert("登录失败");
+	}
+	
 }
