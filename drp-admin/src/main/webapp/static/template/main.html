@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>数据集成平台</title>
 </head>
 <link rel="stylesheet" type="text/css" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../../lib/bootstrap-treeview-master/src/css/bootstrap-treeview.css">
@@ -15,24 +15,17 @@
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 <body>
   <div class="wrapper">
-        <div class="layout-header">
-
-        </div>
+        <div class="layout-header"></div>
 
         <div class="layout-left">
-            <div id="wrapper-tree" class="wrapper-menu">
-            </div>
+            <div id="wrapper-tree" class="wrapper-menu"></div>
         </div>
 
         <div class="layout-conter">
-              <!--使用时只需此标签，class固定,id自己定义-->
-            <div class="nth-tabs" id="main-tabs">
-            </div>
+            <div class="nth-tabs" id="main-tabs"></div>
         </div>
 
-        <div class="layout-footer">
-                
-        </div>
+        <div class="layout-footer"></div>
   </div>
 <script src="../../lib/jquery-3.2.1/jquery-3.2.1.js"></script>
 <script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
@@ -42,20 +35,4 @@
 <script src="../js/main.js"></script>
 <script src="../js/menu.js"></script>
 </body>
-<script>
-  var nthTabs;
- $(function(){
-    createLeftMenu();
-    nthTabs = $("#main-tabs").nthTabs();
-       // 新建选项卡示例
-       nthTabs.addTab({
-                id: 'home',
-                title: '首页',
-                url: "home.html",
-                //content: '这是首页',
-                active: true,
-                allowClose: false
-            });
-  });
-</script>
 </html>

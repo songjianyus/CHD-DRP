@@ -1,3 +1,23 @@
+
+
+$(function(){
+    createLeftMenu();
+    initNthTabs();
+});
+var nthTabs;
+function initNthTabs(){
+    nthTabs = $("#main-tabs").nthTabs();
+       // 新建选项卡示例
+    nthTabs.addTab({
+            id: 'home',
+            title: '首页',
+            url: "home.html",
+            //content: '这是首页',
+            active: true,
+            allowClose: false
+    });
+}
+
 function createLeftMenu(){
     $('#wrapper-tree').treeview({
         data: data,
@@ -10,16 +30,16 @@ function createLeftMenu(){
         expandIcon:"",
         collapseIcon:"",
         onNodeSelected  :function(event, node){
-               // 新建选项卡示例
-         var id = Math.ceil(Math.random() * 1000);
-            nthTabs.addTab({
-                id: 'home' + id,
-                title: '首页',
-                url: "home.html",
-                //content: '这是首页',
-                active: true
-            });
-        }
+            if(node.is_last ==1){
+                var id = Math.ceil(Math.random() * 1000);
+                nthTabs.addTab({
+                    id: 'home' + id,
+                    title: '首页',
+                    url: "home.html",
+                    active: true
+                });
+            }
+          }
         });          
 }
 
@@ -37,4 +57,3 @@ function itemOnclick(target){
         tree.treeview('expandNode', node.nodeId);
     }
 }
-
