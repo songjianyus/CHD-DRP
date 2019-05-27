@@ -20,9 +20,6 @@ function login(){
 		alert('请输入密码');
 	}
 
-	$.cookie('username',username, { expires: 7 });
-		
-	$.cookie('password', password, { expires: 7, path: '/' });
 	
 	if(username =="admin" && password =="123456"){
 		$(location).attr('href', 'main.html');

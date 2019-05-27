@@ -4,16 +4,8 @@ var data = [{
 		expanded: false,
 	},
 	nodes: [{
-		text: "个人信息1",
-		state: {
-			expanded: false,
-		},
-		nodes: [{
-			text: "个人信息1",
-			state: {
-				expanded: false,
-			},
-			is_last:1
-		}]
+		text: "用户维护",
+		url:"hrp/hello",
+		is_last:1
 	}]
 }];

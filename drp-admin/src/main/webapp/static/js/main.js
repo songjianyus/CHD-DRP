@@ -31,11 +31,11 @@ function createLeftMenu(){
         collapseIcon:"",
         onNodeSelected  :function(event, node){
             if(node.is_last ==1){
-                var id = Math.ceil(Math.random() * 1000);
+                var id = new Date().getTime();
                 nthTabs.addTab({
-                    id: 'home' + id,
-                    title: '首页',
-                    url: "home.html",
+                    id: ""+id,
+                    title: node.text,
+                    url: "../../"+node.url,
                     active: true
                 });
             }
