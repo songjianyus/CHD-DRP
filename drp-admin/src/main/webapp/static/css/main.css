@@ -1,46 +1,48 @@
-*{
-    margin: 0px;
-    padding: 0px;
+*{ margin: 0px;padding: 0px;}
+  
+html,body{height: 100%;overflow: hidden;}
+
+.wrapper{ height: 100%;}
+
+.layout-header{
+    background-color:#23262E;
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+ }
+
+.layout-left{
+    background: #393D49!important;
+    width: 220px;
+    position:absolute;
+    top: 60px;
+    bottom: 0px;
 }
 
-html body {
-    overflow: hidden;
+.wrapper-menu{
+  color: lavender;
 }
-/*左侧导航*/
-.layui-tree-skin-sidebar li i{
-    color: rgba(255,255,255,.7);
-    /* display: none; */
+
+
+
+.layout-conter{
+  position: absolute;
+  top: 60PX;
+  left: 220px;
+  bottom: 33px;
+  right: 0px;
 }
-.layui-tree-skin-sidebar li a cite{
-    color: rgba(255,255,255,.7)
-}
-.layui-tree-skin-sidebar li .layui-tree-spread{
-    display: block;
-    position: absolute;
-    right: 30px;
-}
-.layui-tree-skin-sidebar li{
-    line-height: 45px;
-    position: relative;
-}
-.layui-tree-skin-sidebar li ul{
-    margin-left: 0;
-    background: rgba(0,0,0,.3);
-}
-.layui-tree-skin-sidebar li ul a{
-    padding-left: 20px;
-}
-.layui-tree-skin-sidebar li a{
-    height: 45px;
-    border-left: 5px solid transparent;
-    box-sizing: border-box;
-    width: 100%;
-}
-.layui-tree-skin-sidebar li a:hover{
-    background: #4E5465;
-    color: #fff;
-    border-left: 5px solid #009688;
-}
-.layui-tree-skin-sidebar li a.active{
-    background: #009688;
-}
+
+
+
+.layout-footer{
+    background: #eee;
+    height: 33px;
+    position: fixed;
+    left: 220px;
+    right: 0px;
+    bottom: 0px;
+ }
+ 

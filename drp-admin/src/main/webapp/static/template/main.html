@@ -4,52 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>数据集成平台</title>
-<link rel="stylesheet" type="text/css" href="../../lib/layui-v2.4.5/layui/css/layui.css">
-<link rel="stylesheet" type="text/css" href="../css/main.css">
+    <title>Document</title>
 </head>
+<link rel="stylesheet" type="text/css" href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../lib/bootstrap-treeview-master/src/css/bootstrap-treeview.css">
+<link rel="stylesheet" type="text/css" href="../../lib/Font-Awesome-master/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../../lib/jquery.scrollbar-master/jquery.scrollbar.css">
+<link rel="stylesheet" type="text/css" href="../../lib/nth-tabs-master/css/nth-tabs.min.css">
+<link rel="stylesheet" type="text/css" href="../../lib/nth-tabs-master/css/nth-icons.min.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <body>
-    <div class="layui-layout layui-layout-admin">
-        <div class="layui-header">
-          <div class="layui-logo">数据集成平台</div>
-          <!-- 头部区域（可配合layui已有的水平导航） -->
-          <ul class="layui-nav layui-layout-left">
-            <i class="layui-nav-item layui-icon layui-icon-shrink-right"></i>  
-          </ul>
-          <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item">
-              <a href="javascript:;">
-                <img src="http://t.cn/RCzsdCq" class="layui-nav-img">管理员
-              </a>
-              <dl class="layui-nav-child">
-                <dd><a>基本资料</a></dd>
-                <dd><a>安全设置</a></dd>
-              </dl>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="layui-side layui-bg-black ">
-          <div class="layui-side-scroll " >
-            <div id="sidemenubar" lay-filter="test"></div>
-        </div>
+  <div class="wrapper">
+        <div class="layout-header">
+
         </div>
 
-         <div class="layui-body">
-          <div class="layui-tab layui-tab-card" lay-filter="demo" style="margin:0px;">
-          <ul class="layui-tab-title"></ul>
-          <div class="layui-tab-content" style="padding:0px;"></div>
-          </div>
+        <div class="layout-left">
+            <div id="wrapper-tree" class="wrapper-menu">
+            </div>
         </div>
-        <div class="layui-footer">
-          <!-- 底部固定区域 -->
-          © 20190517
+
+        <div class="layout-conter">
+              <!--使用时只需此标签，class固定,id自己定义-->
+            <div class="nth-tabs" id="main-tabs">
+            </div>
         </div>
-      </div>
-<script src="../../lib/jquery-3.2.1/jquery-3.2.1.min.js"></script>
-<script src="../../lib/layui-v2.4.5/layui/layui.js"></script>
-<script src="../../lib/layui-v2.4.5/layui/lay/modules/tree.js"></script>
-<script src="../js/menu.js"></script>
+
+        <div class="layout-footer">
+                
+        </div>
+  </div>
+<script src="../../lib/jquery-3.2.1/jquery-3.2.1.js"></script>
+<script src="../../lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script src="../../lib/bootstrap-treeview-master/src/js/bootstrap-treeview.js"></script>
+<script src="../../lib/jquery.scrollbar-master/jquery.scrollbar.min.js"></script>
+<script src="../../lib/nth-tabs-master/js/nth-tabs.min.js"></script>
 <script src="../js/main.js"></script>
+<script src="../js/menu.js"></script>
 </body>
+<script>
+  var nthTabs;
+ $(function(){
+    createLeftMenu();
+    nthTabs = $("#main-tabs").nthTabs();
+       // 新建选项卡示例
+       nthTabs.addTab({
+                id: 'home',
+                title: '首页',
+                url: "home.html",
+                //content: '这是首页',
+                active: true,
+                allowClose: false
+            });
+  });
+</script>
 </html>
