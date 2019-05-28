@@ -5,7 +5,7 @@ var data = [{
 	},
 	nodes: [{
 		text: "用户维护",
-		url:"hrp/hello",
+		url:"",
 		is_last:1
 	}]
 }];
