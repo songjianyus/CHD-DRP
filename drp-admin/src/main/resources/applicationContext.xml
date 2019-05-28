@@ -4,7 +4,5 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
         
-    <bean id="helloword" class="com.chd.drp.sys.serviceImpl.HelloWorld">   
-        <property name="message" value="Hello World!"/>
-    </bean>
+    <context:annotation-config/>
 </beans>
