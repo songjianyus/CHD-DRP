@@ -17,26 +17,20 @@ import com.chd.drp.sys.service.LoginService;
 @Controller
 public class LoginController {
 
-	 private static final Logger logger = LogManager.getLogger(LoginController.class);
+	private static final Logger logger = LogManager.getLogger(LoginController.class);
 
-	@Resource(name="loginService")
+	@Resource(name = "loginService")
 	private LoginService loginService;
-	
+
 	@RequestMapping("/drp/sys/hello.do")
 	@ResponseBody
-	public Map<String,Object> login(@RequestParam Map<String, Object> mapVo) {
-		
+	public Map<String, Object> login(@RequestParam Map<String, Object> mapVo) {
+
 		String login = "";
-		try {
-			login = loginService.login(mapVo);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
+
+		login = loginService.login(mapVo);
+
 		return JSONObject.parseObject(login);
 	}
-	
-	
+
 }

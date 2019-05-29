@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface LoginService {
 	
-	public String login(Map<String, Object> mapVo) throws Exception;
+	public String login(Map<String, Object> mapVo);
 }

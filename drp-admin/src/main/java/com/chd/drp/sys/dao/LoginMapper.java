@@ -1,5 +1,7 @@
 package com.chd.drp.sys.dao;
 
-public interface LoginMapper {
+import java.util.Map;
 
+public interface LoginMapper {
+   public Map<String, Object> queryLoginUserBycode(Map<String,Object> mapVo);
 }

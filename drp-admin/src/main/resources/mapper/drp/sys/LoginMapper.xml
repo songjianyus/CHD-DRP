@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chd.drp.sys.dao.LoginMapper">
+   <resultMap id="map" type="java.util.Map">
+      <result property="user_name" column="user_name"/>
+      <result property="user_pwd" column="user_pwd"/>
+   </resultMap>
+   
+   <select id ="queryLoginUserBycode"  parameterType="java.util.Map"  resultMap="map">
+           select user_name,user_pwd from sys_user
+           where user_name = #{username}
+           and user_pwd = #{password}          
+   </select>
+   
+</mapper>
