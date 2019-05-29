@@ -1,6 +1,9 @@
 package com.chd.drp.sys.serviceImpl;
 
 import java.util.Map;
+
+import javax.sound.midi.MidiDevice.Info;
+
 import org.springframework.stereotype.Service;
 import com.chd.drp.sys.service.LoginService;
 
@@ -14,7 +17,7 @@ public class LoginServiceImpl implements LoginService{
 		String username = String.valueOf(mapVo.get("username"));
 		
 		String passowrd = String.valueOf(mapVo.get("password"));
-		
+	
 		if(!"Admin".equals(username) && !"123456".equals(passowrd)) {
 			return "{\"error\":\"用户名密码不正确\",\"state\":\"false\"}";
 		}else {
