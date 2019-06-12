@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>
+<script src="/drp-admin/static/js/drp.js"></script>
+<script>
+   var query = function(){
+     
+   }
+
+     $(function () {
+          init();
+     })
+
+    var columns = [{
+                    field: 'databaseid',
+                    title: '数据库编码',
+                },{
+                    field: 'databasename',
+                    title: '数据库名称',
+                },{
+                    field: 'driver',
+                    title: 'driver',
+                }, {
+                    field: 'url',
+                    title: 'url',
+                }, {
+                    field: 'username',
+                    title: '用户',
+                },{
+                    field: 'password',
+                    title: '密码',
+                },{
+                    title: '测试',
+                }]
+    var init = function(){
+        $('#bootstrapTable').bootstrapTable({
+                url: "queryDataSource.do",
+                method:"post",
+                clickEdit: true,
+                toolbar:'#toolbar',
+                pagination: true,
+                height:$(window).height(),
+                showRefresh: true,                  //是否显示刷新按钮
+                pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                columns
+            });
+    }
+
+    var add = function(){
+
+    }
+
+    var del = function(){
+        
+    }
+</script>
+<body>
+    <div class="panel panel-default">
+        <div id="toolbar">
+            <div class="">
+                    <button type="button" class="btn btn-info" onclick="query()">查询</button>
+                    <button type="button" class="btn btn-info" onclick="add()">添加</button>
+                    <button type="button" class="btn btn-info" onclick="del()">删除</button>
+            </div>
+        </div>
+        <div class="panel-body">
+                <table id="bootstrapTable"></table>
+        </div>
+</div>
+</body>
+</html>

@@ -10,34 +10,40 @@
 	<context:component-scan
 		base-package="com.chd.drp.**.serviceImpl"></context:component-scan>
 
+	<context:property-placeholder
+		location="classpath:system.properties" />
+
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:ORCL" />
-		<property name="username" value="hrp_yy" />
-		<property name="password" value="chd" />
+		<property name="driverClassName" value="${drp.driverClassName}" />
+		<property name="url" value="${drp.url}" />
+		<property name="username" value="${drp.username}" />
+		<property name="password" value="${drp.password}" />
 	</bean>
 
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-	  <property name="dataSource" ref="dataSource" />
-	  <property name="configLocation" value="classpath:mybatis-config.xml"></property>
-	  <!-- 加载mybatis的mapper文件 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="classpath:mybatis-config.xml"></property>
+		<!-- 加载mybatis的mapper文件 -->
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:mapper/drp/**/*.xml</value>
 			</list>
 		</property>
 	</bean>
-	
-		<!-- 创建Session -->
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"
-		scope="prototype">
+
+	<!-- 创建Session -->
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.chd.drp.**.dao" />
 		<!-- <property name="markerInterface" value="com.chd.base.SqlMapper" /> -->
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+		<property name="sqlSessionFactoryBeanName"
+			value="sqlSessionFactory" />
 	</bean>
 
 </beans>

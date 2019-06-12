@@ -1,11 +1,15 @@
 html,body{
     margin: 0; padding: 0; 
     overflow: hidden;
-    background: blue;
+    background-color: blue;
 }
 
 .wrapper_login{
-position: absolute;  top: 0; left: 0; bottom: 0; right: 0;
+position: absolute;  
+top: 0; 
+left: 0; 
+bottom: 0; 
+right: 0;
 margin: auto;
 height: 300px;
 width: 500px;
@@ -18,9 +22,4 @@ letter-spacing:15px;
 color: white;
 font-weight:bold;
 }
-.wrapper_well{
-height: 240px;
-}
-.wrapper_input{
-margin:12px 0;
-}
+

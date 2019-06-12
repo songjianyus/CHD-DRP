@@ -1,11 +1,12 @@
 var data = [{
-	text: "个人设置",
+	text: "数据源",
 	state: {
 		expanded: false,
-	},
-	nodes: [{
-		text: "用户维护",
-		url:"",
+	},nodes: [{
+		text: "数据源配置",
+		id:"db",
+		url:"drp/sys/dataSource/dataSourceMainPage.do",
 		is_last:1
 	}]
-}];
+ }
+];
