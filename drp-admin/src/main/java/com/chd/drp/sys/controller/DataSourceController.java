@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
 import com.chd.drp.sys.service.DataSourceService;
 
 @Controller
@@ -23,16 +24,12 @@ public class DataSourceController {
 	@Resource(name="dataSourceService")
     private DataSourceService dataSourceService;
 	
-	@RequestMapping(value = "/drp/sys/dataSource/dataSourceMainPage.do",method = RequestMethod.GET)
-	public String dataSourceMainPage(Model model) throws Exception {
-		return "drp/sys/dataSource/dataSourceMain";
-	}
-	
+
 	@RequestMapping(value = "/drp/sys/dataSource/queryDataSource.do",method = RequestMethod.POST)
 	@ResponseBody
-	public String queryDataSource(@RequestParam Map<String, Object> mapVo,Model model) throws Exception{
+	public Map<String, Object> queryDataSource(@RequestParam Map<String, Object> mapVo,Model model) throws Exception{
 		String queryJson = dataSourceService.queryDataSource(mapVo);
-		return queryJson;
+		return JSONObject.parseObject(queryJson);
 	}
 
 }

@@ -55,15 +55,13 @@ function login() {
 
 
 var setdataresource = function(){
-//页面层-自定义
+
  //'setdatasource.html'
-   
  layer.open({
+	title:"配置数据源",
 	type: 2,
-	title:"数据源配置",
-	area: ['300px', '500px'],
-	maxmin: false,
-	content: 'setdatasource.html',
-	btn:['3','4']
+	area: ['700px', '450px'],
+	fixed: true, //不固定
+	content: 'setdatasource.html'
   });
 }

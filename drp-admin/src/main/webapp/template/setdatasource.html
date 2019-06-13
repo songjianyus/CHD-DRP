@@ -5,8 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+<style>
+    .wrapper{
+        margin-top: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+    }
+</style>
+<script src="../static/js/drp.js"></script>
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            type : "post",
+            url : http +"drp/sys/dataSource/queryDataSource.do",
+            dataType : 'json',
+            success : function(responseData) {
+                $("#driver").val(responseData.driver)
+                $("#url").val(responseData.url)
+                $("#username").val(responseData.username)
+                $("#password").val(responseData.password)
+            }
+        })
+    })
+
+    var save = function(){
+
+    }
+
+    var conn = function(){
+
+
+    }
+</script>
 </head>
 <body>
-    <h1>11</h1>
+        <div class="wrapper">
+                        <div class="layui-form-item">
+                          <label class="layui-form-label">驱动</label>
+                          <div class="layui-input-block">
+                            <input type="text" id='driver'  readonly class="layui-input">
+                          </div>
+                        </div>
+                        <div class="layui-form-item">
+                                <label class="layui-form-label">地址</label>
+                                <div class="layui-input-block">
+                                  <input type="text" id='url' class="layui-input">
+                                </div>
+                        </div>
+                        <div class="layui-form-item">
+                                <label class="layui-form-label">用户名</label>
+                                <div class="layui-input-block">
+                                  <input type="text" id="username"  class="layui-input">
+                                </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">密码</label>
+                            <div class="layui-input-block">
+                                <input type="text" id="password" class="layui-input">
+                            </div>
+                            </div>
+                        <div class="layui-form-item">
+                          <div class="layui-input-block">
+                            <button class="layui-btn" onclick="save">保存</button>
+                          </div>
+                        </div>
+        </div>
+                
 </body>
 </html>
