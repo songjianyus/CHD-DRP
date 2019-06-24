@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.chd.base.util.WisdomCloud;
 import com.chd.drp.sys.dao.LoginMapper;
 import com.chd.drp.sys.service.LoginService;
@@ -20,7 +21,7 @@ public class LoginServiceImpl implements LoginService{
 	@Override
 	public String login(Map<String, Object> mapVo) {
 		// TODO Auto-generated method stub
-
+		
 		Map<String, Object> user = loginMapper.queryUserBycode(mapVo);
 		
 		if(null == user) {return "{\"error\":\"用户不存在\",\"state\":\"false\"}";}

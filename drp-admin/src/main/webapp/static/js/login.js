@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
+	getCookie()//读取cookie
 	$("#login_btn").click(function() {
 		login();
 	});
 
-	
 	$(document).keyup(function(event) {
 		if (event.keyCode == 13) {
 			login();
@@ -14,6 +14,7 @@ $(document).ready(function() {
 function login() {
 	var username = $("#username").val();
 	var password = $("#password").val();
+	var remember_me = $("#remember_me").prop("checked")
 	if (username == "") {
 		layer.msg('请输入用户名');
 		return false;
@@ -25,34 +26,36 @@ function login() {
 
 	var data = {
 		user_code : username,
-		user_pwd : password
+		user_pwd : password,
+		remember_me:remember_me,
 	}
-	$.ajax({
-		type : "post",
-		url : http +"hello.do",
-		async : true,
-		dataType : 'json',
-		data : data,
-		success : function(responseData) {
-			if (typeof (responseData.message) != "undefined"
-					&& responseData.message != null
-					&& responseData.message != "") {
-				$(window).attr('location','main.html');
-				return false;
-			}
-			if (typeof (responseData.error) != "undefined"
-					&& responseData.error != null && responseData.error != "") {
-				layer.msg(responseData.error);
-				return false;
-			}
-		},
-		error : function(XMLHttpRequest, textStatus) {
-
+	ajaxJsonObjectByUrl("hello.do",data,function(responseData){
+        if(responseData.state == "true"){
+			setCookie(data);
+			$(window).attr('location','main.html');
 		}
 	})
-
 }
 
+function setCookie(obj){
+   if(obj.remember_me){
+	 $.cookie("remember_me", obj.remember_me, { expires: 7 });
+	 $.cookie("username", obj.user_code, { expires: 7 });
+	 $.cookie("password", obj.user_pwd, { expires: 7 });
+   }else{
+	 $.cookie("remember_me", obj.remember_me, { expires: -1 });
+	 $.cookie("username", '', { expires: -1 });
+	 $.cookie("password", '', { expires: -1 });
+   }
+}
+
+function getCookie(){
+	if ($.cookie("remember_me") == "true") {
+        $("#remember_me").attr("checked", true);
+        $("#username").val($.cookie("username"));
+        $("#password").val($.cookie("password"));
+    }
+}
 
 var setdataresource = function(){
 

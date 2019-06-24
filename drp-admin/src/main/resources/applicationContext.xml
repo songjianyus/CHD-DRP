@@ -13,14 +13,13 @@
 	<context:property-placeholder
 		location="classpath:system.properties" />
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${drp.driverClassName}" />
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="driverClassName" value="${drp.driverClassName}"/>
 		<property name="url" value="${drp.url}" />
-		<property name="username" value="${drp.username}" />
-		<property name="password" value="${drp.password}" />
-	</bean>
-
+		<property name="username" value="${drp.username}"/>
+		<property name="password" value="${drp.password}"/>
+	</bean> 
+	
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -41,7 +40,6 @@
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.chd.drp.**.dao" />
-		<!-- <property name="markerInterface" value="com.chd.base.SqlMapper" /> -->
 		<property name="sqlSessionFactoryBeanName"
 			value="sqlSessionFactory" />
 	</bean>

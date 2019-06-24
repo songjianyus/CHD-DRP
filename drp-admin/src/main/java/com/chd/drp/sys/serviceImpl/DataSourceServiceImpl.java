@@ -19,7 +19,7 @@ public class DataSourceServiceImpl implements DataSourceService {
 	public String queryDataSource(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		Map<String, Object> mapVo = new HashMap<String,Object>();
-		mapVo.put("driver", "1oracle.jdbc.driver.OracleDriver");
+		mapVo.put("driver", "oracle.jdbc.driver.OracleDriver");
 		mapVo.put("url", "jdbc:oracle:thin:@localhost:1521:ORCL");
 		mapVo.put("username", "hrp_yy");
 		mapVo.put("password", "chd");

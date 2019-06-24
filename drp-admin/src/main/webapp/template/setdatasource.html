@@ -16,16 +16,24 @@
 <script src="../static/js/drp.js"></script>
 <script>
     $(document).ready(function(){
-        $.ajax({
-            type : "post",
-            url : http +"drp/sys/dataSource/queryDataSource.do",
-            dataType : 'json',
-            success : function(responseData) {
-                $("#driver").val(responseData.driver)
-                $("#url").val(responseData.url)
-                $("#username").val(responseData.username)
-                $("#password").val(responseData.password)
-            }
+        // $.ajax({
+        //     type : "post",
+        //     url : "drp/sys/dataSource/queryDataSource.do",
+        //     dataType : 'json',
+        //     success : function(responseData) {
+        //         $("#driver").val(responseData.driver)
+        //         $("#url").val(responseData.url)
+        //         $("#username").val(responseData.username)
+        //         $("#password").val(responseData.password)
+        //     }
+        // })
+
+
+        ajaxJsonObjectByUrl("drp/sys/dataSource/queryDataSource.do","",function(responseData){
+            $("#driver").val(responseData.driver)
+            $("#url").val(responseData.url)
+            $("#username").val(responseData.username)
+            $("#password").val(responseData.password)
         })
     })
 
